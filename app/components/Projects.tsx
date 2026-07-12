@@ -73,15 +73,21 @@ export default function Projects() {
                     >
                       <GitHubIcon width={16} height={16} /> Code
                     </a>
-                    <a
-                      href={p.live ?? p.code}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/live inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-accent1 to-accent2 px-4 py-2 text-sm font-semibold text-white transition hover:scale-[1.03]"
-                    >
-                      Live View
-                      <ArrowUpRight className="transition-transform group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5" />
-                    </a>
+                    {p.live ? (
+                      <a
+                        href={p.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/live inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-accent1 to-accent2 px-4 py-2 text-sm font-semibold text-white transition hover:scale-[1.03]"
+                      >
+                        Live View
+                        <ArrowUpRight className="transition-transform group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5" />
+                      </a>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-muted">
+                        📱 Mobile App
+                      </span>
+                    )}
                   </div>
                 </article>
               </TiltCard>
