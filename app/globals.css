@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050509;
+  --foreground: #e8e9f2;
+  --muted: #9aa0b5;
+  --card: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.08);
+  --accent-1: #7c5cff; /* violet */
+  --accent-2: #22d3ee; /* cyan */
+  --accent-3: #f471b5; /* pink */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-accent1: var(--accent-1);
+  --color-accent2: var(--accent-2);
+  --color-accent3: var(--accent-3);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ambient page glow */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(60rem 60rem at 15% -10%, rgba(124, 92, 255, 0.18), transparent 60%),
+    radial-gradient(50rem 50rem at 90% 10%, rgba(34, 211, 238, 0.14), transparent 60%),
+    radial-gradient(55rem 55rem at 50% 110%, rgba(244, 113, 181, 0.12), transparent 60%);
+  pointer-events: none;
+}
+
+/* Subtle grid overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(ellipse 100% 60% at 50% 0%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 60% at 50% 0%, #000 40%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ---------- Utilities ---------- */
+.gradient-text {
+  background: linear-gradient(120deg, var(--accent-1), var(--accent-2) 50%, var(--accent-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: var(--card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glow-ring {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 20px 60px -20px rgba(124, 92, 255, 0.5);
+}
+
+.section-pad {
+  padding-block: 3.5rem;
+}
+@media (min-width: 640px) {
+  .section-pad {
+    padding-block: 5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-block: 6rem;
+  }
+}
+
+/* Animated gradient border */
+.grad-border {
+  position: relative;
+  border-radius: 1.25rem;
+}
+.grad-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.6), rgba(34, 211, 238, 0.35), rgba(244, 113, 181, 0.5));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* Floating */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #08080f; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--accent-1), var(--accent-2));
+  border-radius: 999px;
+  border: 2px solid #08080f;
+}
+
+::selection {
+  background: rgba(124, 92, 255, 0.35);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; scroll-behavior: auto !important; }
 }
