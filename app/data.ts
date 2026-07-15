@@ -18,7 +18,7 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/raihan-rimon-997969289/",
   },
   stats: [
-    { label: "Projects Built", value: "4+" },
+    { label: "Projects Built", value: "5+" },
     { label: "Years in Tech", value: "2+" },
     { label: "Tech in Stack", value: "20+" },
   ],
@@ -110,6 +110,17 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: "ATS CV Maker",
+    type: "Resume Builder Platform",
+    description:
+      "A full-stack resume builder that creates ATS-friendly CVs — live preview, multiple templates, autosave, an ATS score checker for uploaded PDF/DOCX files, and one-click PDF & Word export with real selectable text.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "NextAuth", "react-pdf", "docx"],
+    code: "https://github.com/rimon213311004/Cv",
+    live: "https://ats-cv-maker-gules.vercel.app",
+    accent: "linear-gradient(135deg,#34d399,#22d3ee)",
+    emoji: "📄",
+  },
   {
     title: "Unihive",
     type: "University Social Media Platform",

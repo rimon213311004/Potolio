@@ -28,9 +28,10 @@ A modern, 3D, fully-responsive personal portfolio built with **Next.js**, **Thre
 
 | Project | Description | Repo |
 |---------|-------------|------|
-| 🐝 **Unihive** | University social media platform with real-time messaging | [Code](https://github.com/rimon213311004/Unihive-main) |
-| 🍽️ **Hostel Meal Management** | Full-stack mess manager with automatic monthly settlement | [Code](https://github.com/rimon213311004/Meal) |
-| 🌾 **AR Traders — Rice Shop** | Shop management with dues, analytics & PDF invoices | [Code](https://github.com/rimon213311004/Shop) |
+| 📄 **ATS CV Maker** | ATS-friendly resume builder with score checker & PDF/Word export | [Code](https://github.com/rimon213311004/Cv) · [Live](https://ats-cv-maker-gules.vercel.app) |
+| 🐝 **Unihive** | University social media platform with real-time messaging | [Code](https://github.com/rimon213311004/Unihive-main) · [Live](https://frontend-weld-kappa-42.vercel.app/) |
+| 🍽️ **Hostel Meal Management** | Full-stack mess manager with automatic monthly settlement | [Code](https://github.com/rimon213311004/Meal) · [Live](https://meal-orcin-psi.vercel.app/) |
+| 🌾 **AR Traders — Rice Shop** | Shop management with dues, analytics & PDF invoices | [Code](https://github.com/rimon213311004/Shop) · [Live](https://rice-shop-rho.vercel.app/) |
 | 🎓 **SSC 2018 Batch** | Batch directory app with admin dashboard | [Code](https://github.com/rimon213311004/Batch) |
 
 ## 🚦 Getting Started
